@@ -5,6 +5,10 @@
     <link rel="stylesheet" href="style.css">
     <title>Site do Spurs</title>
 </head>
+<head>
+<link rel="icon" type="image/png" href="favicon.png">
+</head>
+
 <body>
     <header>
 
@@ -27,11 +31,9 @@
     </header>
     <main>
 
-        <div class="info-canto">
-            <a href="#"></href>
-            <h2>?</h2>
-        </div> 
-        <div class="info-canto:hover"></div>
+<a href="#" class="info-canto">
+<h2>?</h2>
+</a>
 
         
 
@@ -92,7 +94,7 @@
         </section>
 
     </main>
-
+<section>
 <div class="spurs-lineup">
     <h1 class="spurs-title">San Antonio Spurs</h1>
     <h2 class="spurs-subtitle">Escalação Atual</h2>
@@ -101,7 +103,7 @@
 
         <div class="spurs-player spurs-pg">
             <span class="spurs-position">PG</span>
-            <span class="spurs-name">Deearon Fox</span>
+            <span class="spurs-name">De'Aaron Fox</span>
         </div>
 
         <div class="spurs-player spurs-sg">
@@ -123,17 +125,79 @@
             <span class="spurs-position">C</span>
             <span class="spurs-name">Victor Wembanyama</span>
         </div>
+</section>
+
+
+        <!--teste de carrossel-->
+<section class="carousel-section">
+  <h2>Galeria de Jogadores</h2>
+  <div class="carousel">
+    <div class="carousel-item active">
+      <img src="i.png" alt="Jordan McLaughlin">
+      <span class="player-name">Jordan McLaughlin</span>
+    </div>
+    <div class="carousel-item">
+      <img src="i (1).png" alt="Victor Wembanyama">
+      <span class="player-name">Victor Wembanyama</span>
+    </div>
+    <div class="carousel-item">
+      <img src="i (2).png" alt="Dylan Harper">
+      <span class="player-name">Dylan Harper</span>
+    </div>
+    <div class="carousel-item">
+      <img src="i (3).png" alt="Keldon Johnson">
+      <span class="player-name">Keldon Johnson</span>
+    </div>
+    <div class="carousel-item">
+      <img src="4066259.png" alt="De'Aaron Fox">
+      <span class="player-name">De'Aaron Fox</span>
+    </div>
+    <div class="carousel-item">
+      <img src="i (4).png" alt="Stephon Castle">
+      <span class="player-name">Stephon Castle</span>
+    </div>
+    <div class="carousel-item">
+      <img src="1628436.avif" alt="Luke Kornet">
+      <span class="player-name">Luke Kornet</span>
+    </div>
+    <div class="carousel-item">
+      <img src="i (5).png" alt="Kelly Olynyk">
+      <span class="player-name">Kelly Olynyk</span>
+    </div>
+    <div class="carousel-item">
+      <img src="i (6).png" alt="Carter Bryant">
+      <span class="player-name">Carter Bryant</span>
+    </div>
+    <div class="carousel-item">
+      <img src="i (7).png" alt="Bismack Biyombo">
+      <span class="player-name">Bismack Biyombo</span>
+    </div>
+  </div>
+  </section>
 
     </div>
 </div>
 
-    <footer>
-        <div class="spurs-logo-img">
-            <img src="https://upload.wikimedia.org/wikipedia/en/thumb/a/a2/San_Antonio_Spurs.svg/1280px-San_Antonio_Spurs.svg.png">
-        <p> Todos os direitos reservados ao professor Adriano. </p>
-        </div>
+<footer>
+    <div class="spurs-logo-img">
+        <img src="https://upload.wikimedia.org/wikipedia/en/thumb/a/a2/San_Antonio_Spurs.svg/1280px-San_Antonio_Spurs.svg.png" alt="San Antonio Spurs Logo">
+    </div>
+    <div class="footer-escrita">
+        <em>Todos os direitos reservados a Adriano Nascimento Junior.</em>
+    </div>
+</footer>
 
+<script>
+  let index = 0;
+  const items = document.querySelectorAll('.carousel-item');
+  const total = items.length;
 
-    </footer>
+  setInterval(() => {
+    items[index].classList.remove('active');
+    index = (index + 1) % total;
+    items[index].classList.add('active');
+  }, 2000); // troca a cada 2 segundos
+</script>
+
 </body>
 </html>

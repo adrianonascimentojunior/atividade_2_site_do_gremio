@@ -28,7 +28,7 @@ body {
     text-align: center;
     flex-wrap: wrap;
     justify-content: space-around;
-    background-color: rgb(70, 70, 70);
+    background-color: rgb(255, 255, 255); /* não exclui a section, so deixei branca */
     padding: 6px;
     margin: 40px;
     border-radius: 40px;
@@ -40,6 +40,7 @@ body {
     color: rgb(255, 255, 255);
     background-color: rgb(46, 46, 46);
     border: 4px solid rgb(255, 255, 255);
+       border-image: linear-gradient(90deg, #00FFFF, #FF69B4) 1;
 }
 
 .img_noticia {
@@ -51,30 +52,26 @@ body {
 transform:scale(1.08);
 }
 
-footer {
-    background-color: rgb(255, 255, 255);
-    padding: 10px;
-    text-align: center;
-    color: white;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-}
-
 .barra-sticky {
     position: sticky;
     top: 0px;
-    background-color: rgb(0, 255, 157);
-    color: black;
+    background: linear-gradient(90deg, #00ffbf, #ff2a95);
+    color: rgb(0, 0, 0);
     padding: 12px;
     font-weight: bold;
+    font-family: 'Trebuchet MS', sans-serif;
     text-align: center;
     border-bottom: 4px solid rgb(255, 255, 255);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
 }
-
 .posicao {
     margin: 40px;
     padding: 20px;
     border-radius: 40px;
-    background-color: rgb(90, 90, 90);
+    background-color: rgb(168, 168, 168);
     text-align: center;
     color: white
 }
@@ -128,11 +125,93 @@ font-weight: bold;
 }
 
 .spurs-lineup{
-text-align:center;
-max-width:500px;
-margin:auto;
-font-family:Arial, Helvetica, sans-serif;
+    position: relative;
+    text-align: center;
+    max-width: 900px; /* aumentei para dar mais espaço */
+    margin: 40px auto;
+    font-family: Arial, Helvetica, sans-serif;
+    color: white;
+    z-index: 1;
+    padding: 30px;
+    border-radius: 18px;
 }
+
+.spurs-lineup::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: url("https://cdn.nba.com/manage/2026/03/tatum-spurs1.jpg") no-repeat center center;
+  background-size: cover;
+  filter: blur(2px);
+  opacity: 0.9;
+  z-index: -1; /* fica atrás do conteúdo */
+  border-radius: 18px;
+} /* <-- fecha aqui corretamente */
+
+.carousel-section {
+  margin-top: 0px;
+  margin: 0px;
+    padding: 1px;
+    border-radius: 1px;
+    text-align: center;
+      position: relative;
+  z-index: 5;
+}
+
+/* Carrossel separado */
+.carousel {
+  position: relative;
+  width: 600px;
+  height: 400px;
+  margin: 60px auto; /* centraliza e empurra para baixo */
+  overflow: hidden;
+  border-radius: 12px;
+  border: 4px solid #fff;
+}
+
+.carousel-item {
+ position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  transition: opacity 1s ease-in-out;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.player-name {
+  margin-top: 10px;
+  font-size: 18px;
+  font-weight: bold;
+  color: #222;
+  background: rgba(255,255,255,0.8);
+  padding: 6px 12px;
+  border-radius: 6px;
+  z-index: 15;
+  margin-top: 20px;
+  margin-bottom: 2px;
+}
+
+.carousel-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  background: #fff;
+  overflow:hidden;
+
+}
+
+.carousel-item.active {
+  opacity: 1;
+}
+
 
 .spurs-title{
 font-size:36px;
@@ -149,11 +228,12 @@ color:#777;
 position:relative;
 width:500px;
 height:650px;
-background:#817b71;
+background: linear-gradient(90deg, #dd079d, #06c98e);
 border:6px solid #ffffff;
 border-radius:18px;
 margin:auto;
 }
+
 
 .spurs-player{
 position:absolute;
@@ -163,6 +243,10 @@ padding:12px 16px;
 border-radius:10px;
 font-size:14px;
 text-align:center;
+}
+
+.spurs-player:hover {
+transform:scale(1.08);
 }
 
 .spurs-position{
@@ -181,35 +265,61 @@ display:block;
 .spurs-pf{top:380px;left:90px;}
 .spurs-c{top:380px;right:90px;}
 
-.spurs-logo-img{
-display:block;
-margin:100px auto 0 auto;
-background:#fff;
-transition:transform 0.3s ease;
+.spurs-logo-img {
+    display: block;
+    margin: 20px auto;
+    transition: transform 0.3s ease;
 }
 
-.spurs-logo-img:hover{
-transform:scale(1.08);
+.spurs-logo-img img {
+    width: 120px; /* ajuste o tamanho da logo */
+    height: auto;
+}
+
+.spurs-logo-img:hover {
+    transform: scale(1.08);
 }
 
 .info-canto{
-position:fixed;
-bottom:15px;
-right:20px;
-background:#000;
-color:#fff;
-padding:7px 10px;
-border-radius:16px;
-z-index:999;
-height: 50px;
-display:flex;
-align-items:center;
-justify-content:center;
-color:#fff;
-font-size:22px;
-text-decoration: none;
+    position:fixed;
+    bottom:15px;
+    right:20px;
+    background:#000;
+    color:#fff;
+    padding:7px 10px;
+    border-radius:16px;
+    z-index:999;
+    height: 50px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    color:#fff;
+    font-size:22px;
+    text-decoration: none;
+    user-select: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
 }
 
 .info-canto:hover{
-transform:scale(1.08);
+    transform:scale(1.08);
+}
+
+.footer-escrita {
+    margin-top: 10px;
+    font-size: 14px;
+}
+
+footer {
+    background: linear-gradient(90deg, #00ffc8, #ff0080);
+    padding: 20px;
+    text-align: center;
+    color: white;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    border-top: 4px solid #fff;
+    border-radius: 2px;
+    border-color: #000;
+    font-size: 8px;
+    
 }
