@@ -23,6 +23,94 @@ body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
+.background-img {
+  position: absolute; 
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  filter: blur(10px);
+}
+
+.hero {
+  height: 650px;
+  background-image: url("AFP__20251224__2252701994__v1__HighRes__OklahomaCityThunderVSanAntonioSpurs.jpg");
+  background-size: cover;
+  background-position: center;
+  border-radius: 20px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  padding-left: 80px;
+  box-shadow: 0 0 5px black;
+  margin-left: 20px;
+  margin-right: 20px;
+  color: white;
+}
+
+.hero::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 20px;
+  background: rgba(0,0,0,0.5); 
+  z-index: 1; 
+}
+
+.hero-conteudo {
+  position: relative;
+  max-width: 500px;
+  z-index: 2; 
+}
+
+.hero h1 {
+  font-size: 64px;
+  margin: 10px 0;
+  font-weight: 700;
+}
+
+
+.subtitulo{
+font-size:12px;
+letter-spacing:2px;
+opacity:0.8;
+}
+
+.botao{
+display:inline-block;
+margin-top:20px;
+background:white;
+color:black;
+padding:12px 22px;
+border-radius:25px;
+text-decoration:none;
+font-weight:600;
+
+
+}
+
+.botao:hover{
+    transform:scale(1.06);
+    transition-duration: 0.8s;
+}
+
+.navbar2 {
+    background: linear-gradient(90deg, #00ffc8, #ff0080);
+    top: 50px;
+    margin: 0px;
+    padding: 40px;
+    text-align: center;
+    color: white;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    border-top: 4px solid #fff;
+    font-size: 8px;
+    position: relative;
+}
+
 .noticias {
     display: flex;
     text-align: center;
@@ -40,7 +128,7 @@ body {
     color: rgb(255, 255, 255);
     background-color: rgb(46, 46, 46);
     border: 4px solid rgb(255, 255, 255);
-       border-image: linear-gradient(90deg, #00FFFF, #FF69B4) 1;
+    border-image: linear-gradient(90deg, #00FFFF, #FF69B4) 1;
 }
 
 .img_noticia {
@@ -67,14 +155,6 @@ transform:scale(1.08);
     align-items: center;
     z-index: 1000;
 }
-.posicao {
-    margin: 40px;
-    padding: 20px;
-    border-radius: 40px;
-    background-color: rgb(168, 168, 168);
-    text-align: center;
-    color: white
-}
 
 .pos-box {
     width: 420px;
@@ -100,29 +180,7 @@ background-color: yellow;
 color: rgb(7, 49, 98);
 }
 
-.pai {
-width: 520px;
-height: 160px;
-margin: 20px auto;
-padding: 20px;
-border-radius: 20px;
-border: 4px solid white;
-background-color: rgb(95, 95, 95);
-position: relative;
-color: white;
-font-weight: bold;
-}
 
-.filho {
- position: absolute;
- right: 15px;
- bottom: 15px;
- padding: 8px 12px;
- backround-color: yellow;
- color: rgb(7. 49. 98);
- border: 3px solid rgb(7, 49, 98);
- border-radius: 20px;
-}
 
 .spurs-lineup{
     position: relative;
@@ -147,11 +205,12 @@ font-weight: bold;
   background-size: cover;
   filter: blur(2px);
   opacity: 0.9;
-  z-index: -1; /* fica atrás do conteúdo */
+  z-index: -1; 
   border-radius: 18px;
-} /* <-- fecha aqui corretamente */
+}
 
 .carousel-section {
+    top: 40px;
   margin-top: 0px;
   margin: 0px;
     padding: 1px;
@@ -161,7 +220,7 @@ font-weight: bold;
   z-index: 5;
 }
 
-/* Carrossel separado */
+
 .carousel {
   position: relative;
   width: 600px;
@@ -322,4 +381,8 @@ footer {
     border-color: #000;
     font-size: 8px;
     
+}
+
+html {
+    scroll-behavior: smooth;
 }
